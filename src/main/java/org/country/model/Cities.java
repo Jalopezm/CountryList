@@ -1,7 +1,6 @@
 package org.country.model;
 
-public class Country {
-    String code;
+public class Cities {
     String name;
 
     public String getName() {
@@ -10,13 +9,5 @@ public class Country {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 }

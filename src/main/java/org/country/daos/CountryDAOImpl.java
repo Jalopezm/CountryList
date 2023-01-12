@@ -17,6 +17,7 @@ public class CountryDAOImpl implements CountryDAO{
     private final RowMapper<Country> countryRowMapper = (rs, rn) ->{
         Country c = new Country();
         c.setName(rs.getString("Name"));
+        c.setCode(rs.getString("Code"));
         return c;
     };
 

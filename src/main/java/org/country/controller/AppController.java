@@ -1,6 +1,8 @@
 package org.country.controller;
 
+import org.country.model.Cities;
 import org.country.model.Country;
+import org.country.model.Lang;
 import org.country.services.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,5 +21,23 @@ public class AppController {
         List<Country> country = service.allCountry();
         model.addAttribute("country",country);
         return "allCountry";
+    }
+    @GetMapping("/cities/countryCode={countryCode}")
+    public String countryCities(Model model,@PathVariable String countryCode){
+        List<Cities> cities = service.countryCities(countryCode);
+        model.addAttribute("cities",cities);
+        return "cities";
+    }
+    @GetMapping("/languaje/countryCode={countryCode}")
+    public String countryLanguages(Model model,@PathVariable String countryCode){
+        List<Lang> languagesC = service.countryLanguages(countryCode);
+        model.addAttribute("languagesC",languagesC);
+        return "languages";
+    }
+    @GetMapping("/languaje/language={countryCode}")
+    public String Languages(Model model,@PathVariable String countryCode){
+        List<Lang> languages = service.countryLanguages(countryCode);
+        model.addAttribute("languages",languages);
+        return "languages";
     }
 }

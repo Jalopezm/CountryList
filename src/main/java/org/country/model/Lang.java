@@ -1,8 +1,8 @@
 package org.country.model;
 
-public class Country {
-    String code;
+public class Lang {
     String name;
+    String off;
 
     public String getName() {
         return name;
@@ -12,11 +12,11 @@ public class Country {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+    public String getOff() {
+        return off;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setOff(String off) {
+        this.off = off;
     }
 }

@@ -4,7 +4,7 @@
 <h1>All Countries</h1>
 <ul>
    <c:forEach var="c" items="${country}">
-            <li><a href="/lang/">${c.name}</a></li>
+            <li>${c.name}<a href="/cities/countryCode=${c.code}">Cities</a> <a href="/languaje/countryCode=${c.code}">Languajes</a></li>
    </c:forEach>
 </ul>
 </html>
