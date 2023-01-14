@@ -30,4 +30,5 @@ public class CountryDAOImpl implements CountryDAO{
     public List<Country> all() {
         return jdbcTemplate.query("select * from country", countryRowMapper);
     }
+
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface CitiesDAO {
     List<Cities> all(String code);
+    void addCity(Cities city);
 }

@@ -37,7 +37,10 @@ public class MyService {
     public List<Lang> countryLanguages(String c) {
         return langDAO.all(c);
     }
-    public List<Lang> LanguagesInCountry(String lang) {
+    public List<Country> languagesInCountry(String lang) {
         return langDAO.country(lang);
+    }
+    public void addCity(Cities city){
+        citiesDAO.addCity(city);
     }
 }

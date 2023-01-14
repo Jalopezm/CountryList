@@ -28,16 +28,33 @@ public class AppController {
         model.addAttribute("cities",cities);
         return "cities";
     }
-    @GetMapping("/languaje/countryCode={countryCode}")
+    @GetMapping("/language/countryCode={countryCode}")
     public String countryLanguages(Model model,@PathVariable String countryCode){
-        List<Lang> languagesC = service.countryLanguages(countryCode);
-        model.addAttribute("languagesC",languagesC);
-        return "languages";
-    }
-    @GetMapping("/languaje/language={countryCode}")
-    public String Languages(Model model,@PathVariable String countryCode){
         List<Lang> languages = service.countryLanguages(countryCode);
         model.addAttribute("languages",languages);
         return "languages";
+    }
+    @GetMapping("/language/language={lang}")
+    public String Languages(Model model,@PathVariable String lang){
+        List<Country> languagesC = service.languagesInCountry(lang);
+        model.addAttribute("languagesC",languagesC);
+        System.out.println(languagesC);
+        return "languages";
+    }
+
+    @GetMapping("/addCities")
+    public String addCity(Model model) {
+        model.addAttribute("countries", service.allCountry());
+        return "addCity";
+    }
+    @ResponseBody
+    @GetMapping("/successCityAdd")
+    public String successCityAdd(@RequestParam String name, @RequestParam String countryCode, @RequestParam String district, @RequestParam int population) {
+        Cities city = new Cities();
+        city.setName(name);
+        city.setCountryCode(countryCode);
+        city.setDistrict(district);
+        city.setPopulation(population);
+        return "Ciudad añadida con exito";
     }
 }

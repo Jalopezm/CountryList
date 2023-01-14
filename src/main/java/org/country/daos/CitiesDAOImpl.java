@@ -1,7 +1,6 @@
 package org.country.daos;
 
 import org.country.model.Cities;
-import org.country.model.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -24,5 +23,13 @@ public class CitiesDAOImpl implements CitiesDAO{
     public List<Cities> all(String code) {
         System.out.println(code);
         return jdbcTemplate.query("select Name from city Where CountryCode Like ?",citiesRowMapper,code);
+    }
+    @Override
+    public void addCity(Cities city) {
+        jdbcTemplate.update("insert into city (Name, CountryCode, District, Population) values (?, ?, ?, ?)",
+                city.getName(),
+                city.getCountryCode(),
+                city.getDistrict(),
+                city.getPopulation());
     }
 }
